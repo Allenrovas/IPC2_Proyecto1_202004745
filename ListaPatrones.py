@@ -1,12 +1,19 @@
-class ListaPisos(object):
+class Patrones():
+    def __init__(self, codigo, cadena):
+        self.codigo = codigo
+        self.cadena = cadena
+        self.siguiente = None
+        self.anterior = None
+
+class ListaPatrones(object):
     def __init__(self):
         self.cabeza =  None
         self.cola = None
         self.contador = 0
 
 
-    def insertar(self, dato):
-        nodo = Nodo(dato)
+    def insertar(self,  codigo, cadena):
+        nodo = Patrones( codigo, cadena)
 
         if self.cabeza is None:
             self.cabeza = nodo
@@ -23,6 +30,6 @@ class ListaPisos(object):
         actual = self.cabeza
 
         while actual:
-            dato = actual.dato
+            print(" "+actual.codigo)
             actual = actual.siguiente
-            yield dato
+            

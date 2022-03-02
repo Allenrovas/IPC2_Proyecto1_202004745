@@ -1,3 +1,24 @@
+from ListaAzulejos import ListaAzulejos
+from ListaPatrones import ListaPatrones
+
+class Piso():
+    def __init__(self, nombre, rows, columns, flip, slide):
+        self.nombre = nombre
+        self.rows = rows
+        self.columns = columns
+        self.flip = flip
+        self.slide = slide
+        self.patrones = ListaPatrones()
+        self.casillas = ListaAzulejos() #Matriz
+        self.siguiente = None
+        self.anterior = None
+
+    def agregarPatrones(self, patrones):
+        self.patrones.insertar(patrones)
+
+    def agregarCasillas(self, casillas):
+        self.casillas.insertar(casillas)
+
 class ListaPisos(object):
     def __init__(self):
         self.cabeza =  None
@@ -5,8 +26,8 @@ class ListaPisos(object):
         self.contador = 0
 
 
-    def insertar(self, dato):
-        nodo = Nodo(dato)
+    def insertar(self,  nodo):
+        nodo = nodo
 
         if self.cabeza is None:
             self.cabeza = nodo
@@ -21,8 +42,9 @@ class ListaPisos(object):
     
     def recorrer(self):
         actual = self.cabeza
-
+        
         while actual:
-            dato = actual.dato
+            print(actual.nombre)
+            actual.patrones.recorrer()
             actual = actual.siguiente
-            yield dato
+            
