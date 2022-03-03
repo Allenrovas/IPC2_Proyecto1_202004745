@@ -1,5 +1,4 @@
 import imp
-from Nodos import *
 from ListaAzulejos import *
 from ListaPatrones import *
 from ListaPisos import *
@@ -47,6 +46,7 @@ def LeerXml():
                     nodo.patrones.insertar(codigo, cadena)
                 listapisos.insertar(nodo)
             Contador+=1
+    print("Se ha cargo el Archivo XML")
 
           
 
@@ -69,7 +69,9 @@ def MenuInicial():
     elif SeleccionarUsuario == 2:
         print("")
     elif SeleccionarUsuario == 3:
+        listapisos.ordenar_alfabeticamente()
         listapisos.recorrer()
+        MenuInicial()
     elif SeleccionarUsuario ==4:
         print("Gracias por usar nuestro sistema, buen dia.")
         exit

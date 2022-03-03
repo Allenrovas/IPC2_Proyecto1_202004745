@@ -32,4 +32,8 @@ class ListaAzulejos(object):
         actual = self.cabeza
 
         while actual:
+            print(actual.rows)
+            print(actual.columns)
+            print(actual.color)
             actual = actual.siguiente
+            

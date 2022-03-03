@@ -46,5 +46,36 @@ class ListaPisos(object):
         while actual:
             print(actual.nombre)
             actual.patrones.recorrer()
+            actual.casillas.recorrer()
             actual = actual.siguiente
+    
+    def ordenar_alfabeticamente(self):
+        if self.contador > 1:
+                while True:
+                    actual = self.cabeza
+                    i = None  # anterior
+                    j = self.cabeza.siguiente  # siguiente
+                    cambio = False
+                    while j != None:
+                        
+                        if actual.nombre > j.nombre:
+                            cambio = True
+                            if i != None:
+                                tmp = j.siguiente
+                                i.siguiente = j
+                                j.siguiente = actual
+                                actual.siguiente = tmp
+                            else:
+                                tmp2 = j.siguiente
+                                self.cabeza = j
+                                j.siguiente = actual
+                                actual.siguiente = tmp2
+                            i = j
+                            j = actual.siguiente
+                        else:
+                            i = actual
+                            actual = j
+                            j = j.siguiente
+                    if not cambio:
+                        break  
             
