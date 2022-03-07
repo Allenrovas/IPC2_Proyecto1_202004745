@@ -1,4 +1,5 @@
 from ListaAzulejos import *
+from pip import main
 
 class Patrones():
     def __init__(self, codigo, cadena):
@@ -32,7 +33,28 @@ class ListaPatrones(object):
         
         self.contador += 1
 
-    
+    def recorrermenu(self):
+        actual =self.cabeza
+        i=1
+        SeleccionarPiso = ""
+        print("======Menu Patrones======")
+        while actual:
+            print(" ",actual.codigo)
+            i+=1
+            actual = actual.siguiente
+        print(" exit. Regresar al menu anterior")
+        SeleccionarPiso = input("Ingrese el nombre del piso a graficar: ")
+        actual = self.cabeza
+
+        while actual:
+            if SeleccionarPiso == actual.codigo:
+                actual.casillas.graficar()
+            elif SeleccionarPiso == "exit": 
+                main.MenuInicial()
+            else:
+                "Ingrese una entrada válida"
+            actual = actual.siguiente
+
     def recorrer(self):
         actual = self.cabeza
 

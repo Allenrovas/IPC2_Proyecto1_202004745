@@ -1,3 +1,6 @@
+import pydot
+from graphviz import render
+
 class Azulejo():
     def __init__(self, rows, columns, color,cantidadrows,cantidadcolumns):
         self.cantidadrows = cantidadrows
@@ -60,9 +63,12 @@ class ListaAzulejos(object):
         archivo.write("</TR></TABLE>>]")
         archivo.write("}")
         archivo.close()
-        from os import system
-        from os import system, startfile
-        system('dot.exe -Tpng GraphvizRep.dot -o GraphvizRep.png')
-        system('GraphvizRep.png')
-            
+        from os import  startfile, system
+        system('dot -Tpng GraphvizRep.dot -o GraphvizRep.png')
+        startfile('GraphvizRep.png')
+        #(graph,) = pydot.graph_from_dot_file('./GraphvizRep.dot')
+        #graph.write_png('GraphvizRep.png') 
+        #render('dot', 'png', './GraphvizRep.dot')  
+ 
+         
             
