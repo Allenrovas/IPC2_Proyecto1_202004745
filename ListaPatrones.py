@@ -1,27 +1,12 @@
-from ListaAzulejos import *
-from pip import main
-
-class Patrones():
-    def __init__(self, codigo, cadena):
-        self.codigo = codigo
-        self.cadena = cadena
-        self.casillas = ListaAzulejos() #Matriz
-        self.siguiente = None
-        self.anterior = None
-
-    def agregarCasillas(self, casillas):
-        self.casillas.insertar(casillas)
-
-class ListaPatrones(object):
+class ListaPisos(object):
     def __init__(self):
         self.cabeza =  None
         self.cola = None
         self.contador = 0
 
 
-    def insertar(self,  codigo, cadena, casillas):
-        nodo = Patrones( codigo, cadena)
-        nodo.casillas = casillas
+    def insertar(self, dato):
+        nodo = Nodo(dato)
 
         if self.cabeza is None:
             self.cabeza = nodo
@@ -33,54 +18,11 @@ class ListaPatrones(object):
         
         self.contador += 1
 
-    def recorrermenu(self):
-        actual =self.cabeza
-        i=1
-        SeleccionarPiso = ""
-        print("======Menu Patrones======")
-        while actual:
-            print(" ",actual.codigo)
-            i+=1
-            actual = actual.siguiente
-        print(" exit. Regresar al menu anterior")
-        SeleccionarPiso = input("Ingrese el nombre del piso a graficar: ")
-        actual = self.cabeza
-
-        while actual:
-            if SeleccionarPiso == actual.codigo:
-                actual.casillas.graficar()
-            elif SeleccionarPiso == "exit": 
-                main.MenuInicial()
-            else:
-                "Ingrese una entrada válida"
-            actual = actual.siguiente
-
+    
     def recorrer(self):
         actual = self.cabeza
 
         while actual:
-            print(actual.codigo)
+            dato = actual.dato
             actual = actual.siguiente
-            
-    def Seleccionar(self):
-        actual = self.cabeza
-        i=1
-        Seleccionar = ""
-        print("======Menu Nuevo Patron======")
-        while actual:
-            print(" ",actual.codigo)
-            i+=1
-            actual = actual.siguiente
-        print(" exit. Regresar al menu principal")
-        SeleccionarPiso = input("Ingrese el nombre del piso a graficar: ")
-        actual = self.cabeza
-        for piso in range(i):
-            if SeleccionarPiso == actual.nombre:
-                ListaAzulejos.graficar
-            elif SeleccionarPiso == "exit":
-               print("Help")
-               #MenuInicial.MenuInicial()
-            else:
-                "Ingrese una entrada válida"
-            piso +=1
-    
+            yield dato

@@ -1,9 +1,0 @@
-digraph grid {bgcolor="slategrey" label="Reporte Graphviz"layout=dot 
- labelloc = "t"edge [weigth=1000 style=dashed color=red4 dir = "both" arrowtail="open" arrowhead="open"]
-rankdir="LR"
-node[shape=box, color=lightgrey]a0 [label=<
-<TABLE><TR><TD bgcolor="black"></TD>
-</TR><TR><TD bgcolor="black"></TD>
-</TR><TR><TD bgcolor="white"></TD>
-</TR><TR><TD bgcolor="white"></TD>
-</TR></TABLE>>]}
