@@ -66,8 +66,8 @@ class ListaPisos(object):
         while actual:
             if SeleccionarPiso == actual.nombre:
                 actual.patrones.cabeza.casillas.graficar()
+                actual.patrones.recorrermenu()
             elif SeleccionarPiso == "exit":
-               print("Help")
                main.MenuInicial()
             else:
                 "Ingrese una entrada válida"
